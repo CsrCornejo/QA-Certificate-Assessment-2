@@ -21,6 +21,10 @@
 											"var jsonData = pm.response.json();\r",
 											"var content = pm.environment.get(\"taskName\");\r",
 											"\r",
+											"pm.test(\"Status code is 2xx\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											"\r",
 											"pm.test(\"Task content is correct\", function () {\r",
 											"    pm.expect(jsonData.content).to.eql(content);\r",
 											"});\r",
@@ -119,6 +123,10 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"pm.test(\"Status code is 2xx\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											"\r",
 											"pm.test(\"Content-Type is present and is JSON\", function () {\r",
 											"    pm.response.to.have.header(\"Content-Type\");\r",
 											"    pm.response.to.be.header(\"Content-Type\", \"application/json\");\r",
@@ -149,6 +157,10 @@
 									"script": {
 										"exec": [
 											"var id = pm.environment.get(\"taskId\");\r",
+											"\r",
+											"pm.test(\"Status code is 2xx\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
 											"\r",
 											"pm.test(\"Task ID is correct\", function () {\r",
 											"    var jsonData = pm.response.json();\r",
@@ -243,7 +255,9 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											""
+											"pm.test(\"Status code is 2xx\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});"
 										],
 										"type": "text/javascript"
 									}
@@ -330,6 +344,20 @@
 						},
 						{
 							"name": "Change Task status to complete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 2xx\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -380,6 +408,20 @@
 						},
 						{
 							"name": "Reopen a Task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 2xx\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "POST",
 								"header": [],
@@ -434,6 +476,20 @@
 					"item": [
 						{
 							"name": "Delete Task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 2xx\", function () {\r",
+											"    pm.response.to.be.success;\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "DELETE",
 								"header": [],
@@ -509,10 +565,6 @@
 			"script": {
 				"type": "text/javascript",
 				"exec": [
-					"pm.test(\"Status code is 2xx\", function () {",
-					"    pm.response.to.be.success;",
-					"});",
-					"",
 					"pm.test(\"Response time is less than 450ms\", function () {",
 					"    pm.expect(pm.response.responseTime).to.be.below(450);",
 					"});"
